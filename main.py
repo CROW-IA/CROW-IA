@@ -1,9 +1,8 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.post("/comando")
-async def recibir_comando(request: Request):
-    data = await request.json()
-    print("Comando recibido:", data)
-    return {"estado": "ok", "mensaje": f"Comando {data.get('accion')} recibido"}
+@app.get("/")
+def read_root():
+    return {"mensaje": "¡CROW IA funcionando correctamente!"}
+
